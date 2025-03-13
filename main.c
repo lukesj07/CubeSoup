@@ -73,6 +73,7 @@ int main() {
         for (int j = 0; j < 3; j++) {
             vertices[j] = coord_vecs[triangle_indices[i][j]];
         }
+        //Triangle* tri = triangle_new(vertices, (Matrix*[]){rgb[2], rgb[2], rgb[2]});
         Triangle* tri = triangle_new(vertices, rgb);
         mesh_set(cube_mesh, i, tri);
         free(tri); // triangle gets copied so must be freed
@@ -137,10 +138,11 @@ int main() {
             }
 
             Matrix* light_vec = matrix_new(3, 1);
-            const double light_arr[] = {0, 0, -1};
+            const double light_arr[] = {0, 0, 1};
             matrix_init(light_vec, light_arr);
             matrix_normalize(light_vec);
             matrix_normalize(cross_prod);
+            
             const double light_factor = dot_mult(cross_prod, light_vec);
             
             Matrix* proj_results[3];
