@@ -35,7 +35,7 @@ Mesh* mesh_new(int num_triangles) {
     return mesh;
 }
 
-void mesh_set(Mesh* mesh, int index, Triangle* tri) {
+inline void mesh_set(Mesh* mesh, int index, Triangle* tri) {
     if (mesh == NULL || tri == NULL) {
         fprintf(stderr, "Cannot call mesh_set on a null mesh/triangle\n");
         return;
@@ -48,7 +48,7 @@ void mesh_set(Mesh* mesh, int index, Triangle* tri) {
     mesh->tris[index] = *tri;
 }
 
-void free_mesh(Mesh* mesh) {
+inline void free_mesh(Mesh* mesh) {
     free(mesh->tris);
     free(mesh);
 }

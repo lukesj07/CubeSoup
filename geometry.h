@@ -18,7 +18,7 @@ typedef struct {
 Triangle* triangle_new(Matrix* vertices[], Matrix* colors[]);
 
 Mesh* mesh_new(int num_triangles);
-void mesh_set(Mesh* mesh, int index, Triangle* tri);
-void free_mesh(Mesh* mesh);
+inline void mesh_set(Mesh* mesh, int index, Triangle* tri);
+inline void free_mesh(Mesh* mesh);
 
 #endif // ! GEOMETRY_H
